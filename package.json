@@ -1,0 +1,64 @@
+{
+  "name": "blink-desktop",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "concurrently --kill-others --success first 'npm run parcel-dev' 'wait-on http://localhost:1234 && npm run electron-dev'",
+    "build": "npm run parcel-build && npm run electron-dist && npm run electron-postinstall",
+    "parcel-dev": "parcel ./src/index.html -d build/",
+    "electron-dev": "electron . --start-dev",
+    "parcel-build": "rm -rf build/ && parcel build ./src/index.html -d build/ --public-url ./ && cp assets/icon.ico build/icon.ico",
+    "electron-pack": "electron-builder --dir",
+    "electron-dist": "electron-builder",
+    "electron-postinstall": "electron-builder install-app-deps"
+  },
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "build": {
+    "appId": "org.konsumer.blinkdesktop",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "msi",
+      "icon": "build/icon.ico"
+    },
+    "files": [
+      "main.js",
+      "build/*"
+    ]
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "shortid": "^2.2.15",
+    "node-notifier": "^6.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "electron": "^7.1.3",
+    "electron-builder": "^21.2.0",
+    "electron-reload": "^1.5.0",
+    "parcel-bundler": "^1.12.4",
+    "wait-on": "^3.3.0"
+  }
+}
