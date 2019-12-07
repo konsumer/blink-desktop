@@ -2,6 +2,8 @@
 
 This is a cross-platform app to view [blink cameras](https://blinkforhome.com/).
 
+![screenshot](./screenshot.png)
+
 
 ## development
 
