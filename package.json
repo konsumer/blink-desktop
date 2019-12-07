@@ -1,6 +1,6 @@
 {
   "name": "blink-desktop",
-  "productName": "Blink",
+  "productName": "blink-desktop",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -29,13 +29,24 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "npm"
+        "packageManager": "npm",
+        "ignore": [
+          ".compilerc",
+          "README.md",
+          ".gitignore",
+          "screenshot.png"
+
+        ]
       },
       "electronWinstallerConfig": {
         "name": "blink_desktop"
       },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
+      "electronInstallerDebian": {
+        "name": "blinkdesktop"
+      },
+      "electronInstallerRedhat": {
+        "name": "blinkdesktop"
+      },
       "github_repository": {
         "owner": "konsumer",
         "name": "blink-desktop"
