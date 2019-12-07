@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="shortcut icon" href="../assets/favicon.ico">
-    <title>Blink Desktop</title>    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/flatly/bootstrap.min.css" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <script src="./index.js"></script>
-  </body>
+
+<head>
+  <title>Blink</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cyborg/bootstrap.min.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+  <div id="App"></div>
+</body>
+
+<script type="text/jsx">
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {AppContainer} from 'react-hot-loader'
+
+const render = () => {
+  const App = require('./app').default
+  ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('App'))
+}
+
+render()
+if (module.hot) {
+  module.hot.accept(render);
+}
+</script>
+
 </html>

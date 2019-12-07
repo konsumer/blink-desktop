@@ -1,7 +1,5 @@
+node_modules
+out
+.eslintcache
+*.log
 .DS_Store
-npm-debug.log
-
-.cache/
-dist/
-build/
-node_modules/
