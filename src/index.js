@@ -6,12 +6,16 @@ let mainWindow
 
 const isDevMode = process.execPath.match(/[\\/]electron/)
 
-if (isDevMode) enableLiveReload({ strategy: 'react-hmr' })
+if (isDevMode) {
+  enableLiveReload({ strategy: 'react-hmr' })
+}
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
+    name: 'Blink',
     width: 800,
-    height: 600
+    height: 600,
+    autoHideMenuBar: true
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)

@@ -11,19 +11,25 @@ const { Provider } = context
 export const ApiProvider = props => {
   const [state, setState] = useState()
 
-  useEffect(() => {
+  const updateSummary = () => {
     if (window.localStorage.info) {
       const [token, account, tier] = window.localStorage.info.split('|')
       blink.hydrate(token, account, tier)
       blink.summary().then(setState)
     }
-    // TODO: set interval here for keeping summary fresh?
+  }
+
+  useEffect(() => {
+    // get summary if available, every 30 seconds
+    updateSummary()
+    const interval = setInterval(updateSummary, 30000)
+    return () => clearInterval(interval)
   })
 
   const doLogin = async ({ email, password }) => {
     const info = await blink.login(email, password)
     window.localStorage.info = [info.authtoken.authtoken, info.account.id, Object.keys(info.region)[0]].join('|')
-    blink.summary().then(setState)
+    updateSummary()
   }
 
   const doLogout = () => {

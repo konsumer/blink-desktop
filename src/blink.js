@@ -1,4 +1,4 @@
-import { fetch } from 'popsicle'
+import fetch from 'node-fetch'
 
 export const api = {}
 
@@ -150,6 +150,12 @@ export class Blink {
   // geta nice summary for basic usage
   summary () {
     return api.homescreenV3(this.tier, this.headers.ACCOUNT_ID, { headers: this.headers })
+  }
+
+  // proxy GET with credentials for correct tier
+  // TODO: this is for binaries, so should abstract binary body blob/buffer stuff for cross-platform (browser vs node)
+  get (url) {
+    return fetch(`https://rest-${this.tier}.immedia-semi.com${url}`, { headers: this.headers })
   }
 }
 
