@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Button, Container } from 'reactstrap'
 
 import { notify } from './utils'
 
@@ -8,10 +9,10 @@ const sayHello = () => {
 }
 
 const App = () => (
-  <div>
+  <Container>
     <h1>It works</h1>
-    <button onClick={sayHello}>test notification</button>
-  </div>
+    <Button color='primary' onClick={sayHello}>test notification</Button>
+  </Container>
 )
 
 ReactDOM.render(
