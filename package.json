@@ -1,6 +1,6 @@
 {
   "name": "blink-desktop",
-  "productName": "blink-desktop",
+  "productName": "Blink",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -12,7 +12,7 @@
     "lint": "standard --fix"
   },
   "keywords": [],
-  "author": "konsumer",
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
   "license": "MIT",
   "config": {
     "forge": {
@@ -37,11 +37,11 @@
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "konsumer",
+        "name": "blink-desktop"
       },
       "windowsStoreConfig": {
-        "packageName": "",
+        "packageName": "org.konsumer.blink",
         "name": "blinkdesktop"
       }
     }

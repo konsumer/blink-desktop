@@ -7,6 +7,14 @@ This is a cross-platform app to view [blink cameras](https://blinkforhome.com/).
 
 ## development
 
+```
+npm i           # install tools
+npm start       # run hot-reloading development version
+npm run make    # create distributable runtimes for release
+npm run lint    # fix files according to code-standard
+npm run publish # send to github releases
+```
+
 Press `Alt` to show menu (so you can use dev-tools, etc)
 
 
