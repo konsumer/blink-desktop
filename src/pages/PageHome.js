@@ -8,8 +8,9 @@ const Camera = ({ camera, thumb }) => (
     <h3>{camera.name}</h3>
     <div style={{ marginTop: 10, marginBottom: 10, display: 'flex', justifyContent: 'space-between' }}>
       <Button outline color='info'><i className='fas fa-camera' /> Snapshot</Button>
-      <Button outline color='danger'><i className='fa fa-bell' /> Arm</Button>
       <Button outline color='success'><i className='fas fa-video' /> Live Video</Button>
+      <Button outline color='primary'><i className='fas fa-cloud-download-alt' /> Saved Videos</Button>
+      <Button outline color='danger'><i className='fa fa-bell' /> Arm</Button>
     </div>
     <img src={thumb} width='100%' />
     <pre>{JSON.stringify(camera, null, 2)}</pre>
@@ -32,7 +33,7 @@ const PageHome = ({ summary }) => {
     <Container>
       {summary.networks.map(network => (
         <div key={network.id}>
-          <h2>{network.name}</h2>
+          <h2>My House</h2>
           {summary.cameras.filter(camera => camera.network_id === network.id).map((camera, c) => (<Camera key={camera.id} camera={camera} thumb={thumbs[c]} />))}
         </div>
       ))}
