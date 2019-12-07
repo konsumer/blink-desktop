@@ -19,7 +19,7 @@ const PageLogin = ({ onLogin }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   return (
-    <Container className='PageLogin' style={style.form}>
+    <Container style={style.form}>
       <h2>Sign In</h2>
       <Form onSubmit={e => { e.preventDefault(); onLogin({ email, password }) }}>
         <Col>

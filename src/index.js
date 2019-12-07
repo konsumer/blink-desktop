@@ -12,16 +12,16 @@ if (isDevMode) {
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
-    name: 'Blink',
+    name: 'Blink Desktop',
     width: 800,
     height: 600,
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    icon: `${__dirname}/assets/icon.png`
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   if (isDevMode) {
     await installExtension(REACT_DEVELOPER_TOOLS)
-    mainWindow.webContents.openDevTools()
   }
   mainWindow.on('closed', () => {
     mainWindow = null

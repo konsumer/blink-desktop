@@ -20,10 +20,9 @@ Press `Alt` to show menu (so you can use dev-tools, etc)
 
 ## TODO
 
-* [ ] add router
-* [ ] snapshot page
+* [X] add router
 * [ ] live-video page
-* [ ] cloud-files page
+* [X] cloud-files page
 * [ ] new motion notification system
 * [ ] add functionality to home buttons
 * [ ] add settings page

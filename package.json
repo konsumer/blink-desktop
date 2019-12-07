@@ -1,6 +1,6 @@
 {
   "name": "blink-desktop",
-  "productName": "blink-desktop",
+  "productName": "Blink Desktop",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -11,7 +11,11 @@
     "publish": "electron-forge publish",
     "lint": "standard --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "blink",
+    "camera",
+    "desktop"
+  ],
   "author": "David Konsumer <konsumer@jetboystudio.com>",
   "license": "MIT",
   "config": {
@@ -30,12 +34,12 @@
       },
       "electronPackagerConfig": {
         "packageManager": "npm",
+        "icon": "src/assets/icon.png",
         "ignore": [
           ".compilerc",
           "README.md",
           ".gitignore",
           "screenshot.png"
-
         ]
       },
       "electronWinstallerConfig": {
@@ -59,14 +63,15 @@
   },
   "dependencies": {
     "blink-data": "0.0.2",
+    "dateformat": "^3.0.3",
     "electron-compile": "^6.4.4",
     "electron-devtools-installer": "^2.2.4",
     "electron-squirrel-startup": "^1.0.0",
+    "hookrouter": "^1.2.3",
     "node-fetch": "^2.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.18",
-    "react-wifi-indicator": "^1.0.1",
     "reactstrap": "^8.2.0"
   },
   "devDependencies": {
