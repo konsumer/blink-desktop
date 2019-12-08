@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Simple wifi indicator strength = 0 - 3
+
 // TODO: if strength == 0 do red-x, if 5 do green
 
 const SvgComponent = (props) => {

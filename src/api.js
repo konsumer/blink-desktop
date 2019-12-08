@@ -1,12 +1,18 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-
-import { Blink } from './blink'
+import { Blink } from 'blink-data'
+import emitonoff from 'emitonoff'
 
 export const blink = new Blink()
 
 export const context = createContext()
 export const useApi = () => useContext(context)
 const { Provider } = context
+
+export const pipe = emitonoff()
+
+setInterval(() => {
+  pipe.emit('update')
+}, 1000)
 
 export const ApiProvider = props => {
   const [state, setState] = useState()
@@ -27,11 +33,10 @@ export const ApiProvider = props => {
   }
 
   useEffect(() => {
-    // get summary if available, every 10 seconds
     updateSummary()
-    const interval = setInterval(updateSummary, 100000)
-    return () => clearInterval(interval)
-  }, [state])
+    pipe.on('update', updateSummary)
+    return () => pipe.off('update', updateSummary)
+  }, [])
 
   const doLogin = async ({ email, password }) => {
     const info = await blink.login(email, password)
@@ -44,5 +49,5 @@ export const ApiProvider = props => {
     setState(undefined)
   }
 
-  return (<Provider {...props} value={{ summary: state, updateSummary, doLogin, doLogout, blink }} />)
+  return (<Provider {...props} value={{ summary: state, pipe, updateSummary, doLogin, doLogout, blink }} />)
 }

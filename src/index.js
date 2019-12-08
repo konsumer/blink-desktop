@@ -14,7 +14,7 @@ const createWindow = async () => {
   mainWindow = new BrowserWindow({
     name: 'Blink Desktop',
     width: 800,
-    height: 600,
+    height: 680,
     autoHideMenuBar: true,
     icon: `${__dirname}/assets/icon.png`
   })

@@ -28,5 +28,6 @@ Press `Alt` to show menu (so you can use dev-tools, etc)
 * [ ] add settings page
 * [ ] add program page
 * [ ] handle onboarding?
-* [ ] give local changes back to [blink-data](https://github.com/konsumer/blink-data)
+* [X] give local changes back to [blink-data](https://github.com/konsumer/blink-data)
+* [ ] it's making too many requests, need to look at `useEffect` calls
 * [ ] [sys-tray icon](https://github.com/kevinsawicki/tray-example) that notifies when there is motion and has options for arm/disarm & view media

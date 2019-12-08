@@ -21,7 +21,7 @@ const BlinkVideo = ({ video }) => {
 
   return (
     <div>
-      <div style={{ height: '54vw', textAlign: 'center' }}>
+      <div style={{ height: '54.5vw', textAlign: 'center' }}>
         {!playing && <img src={img} onClick={onPlay} width='100%' />}
         {playing && <video poster={img} onClick={e => { e.target.currentTime = 0; e.target.play() }} autoPlay src={vid} width='100%' />}
       </div>
